@@ -3,23 +3,23 @@ This repository contains coursework for the AD Lab, including various projects a
 
 ## Lab Contents
 
-### 2. Lab 3 - Stock Price Prediction
+### 1. Lab 3 - Stock Price Prediction
 - Implemented **machine learning models** to predict stock prices.
 
-### 3. Lab 4 - File QnA
+### 2. Lab 4 - File QnA
 - Built a **question-answering system** for documents.
 - Used NLP techniques to extract answers from uploaded files.
 
-### 4. Lab 5 - Website Query
+### 3. Lab 5 - Website Query
 - Designed a system to **query website data**.
 - Involves web scraping and natural language processing.
 
-### 5. Lab 6 - User Authentication and Document Management System
+### 4. Lab 6 - User Authentication and Document Management System
 - Developed a **secure authentication system** with user roles.
 - Implemented document storage and access control.
 
-### 6. Lab 7 - Natural Language Database Interaction with LLMs
+### 5. Lab 7 - Natural Language Database Interaction with LLMs
 - Built an **LLM-powered system** to convert natural language queries into SQL.
 - Integrated with **MySQL and Flask**.
 
-**Maintained by:** [Ashmit Dutta]([https://github.com/kanikarawlo](https://github.com/ByteBit0))
+**Maintained by:** [Ashmit Dutta](https://github.com/ByteBit0)

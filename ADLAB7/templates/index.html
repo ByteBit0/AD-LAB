@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Database Query Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #000;
+            --text-color: #fff;
+            --border-color: #444;
+            --input-background: #111;
+            --shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .query-box {
+            background: var(--input-background);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .query-box:hover {
+            transform: scale(1.02);
+        }
+
+        .query-input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            background: var(--background-color);
+            color: var(--text-color);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            resize: vertical;
+        }
+
+        .query-input:focus {
+            outline: none;
+            border-color: #fff;
+        }
+
+        .submit-btn {
+            background: #fff;
+            color: #000;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #ddd;
+        }
+
+        .response-box {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: var(--radius);
+            background: var(--input-background);
+            box-shadow: var(--shadow);
+            font-family: 'Monaco', 'Consolas', monospace;
+            text-align: left;
+        }
+
+        .error {
+            background: #ff4444;
+            color: #fff;
+            padding: 1rem;
+            border-radius: var(--radius);
+            margin-top: 1rem;
+        }
+
+        .fadeIn {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Database Query Interface</h1>
+        
+        <div class="query-box">
+            <form method="POST">
+                <textarea 
+                    name="natural_query" 
+                    class="query-input" 
+                    rows="3" 
+                    placeholder="Enter your query..."
+                >{{ natural_query }}</textarea>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+
+        {% if sql_query %}
+        <div class="response-box fadeIn">
+            <strong>SQL Query:</strong><br>
+            {{ sql_query }}
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="error fadeIn">
+            {{ error }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -3,9 +3,6 @@ This repository contains coursework for the AD Lab, including various projects a
 
 ## Lab Contents
 
-### 1. Lab 1 - Resume
-- Developed a resume using **HTML & CSS**.
-
 ### 2. Lab 3 - Stock Price Prediction
 - Implemented **machine learning models** to predict stock prices.
 
@@ -25,4 +22,4 @@ This repository contains coursework for the AD Lab, including various projects a
 - Built an **LLM-powered system** to convert natural language queries into SQL.
 - Integrated with **MySQL and Flask**.
 
-**Maintained by:** [Ashmit Dutta](https://github.com/kanikarawlo)
+**Maintained by:** [Ashmit Dutta]([https://github.com/kanikarawlo](https://github.com/ByteBit0))

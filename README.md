@@ -22,4 +22,9 @@ This repository contains coursework for the AD Lab, including various projects a
 - Built an **LLM-powered system** to convert natural language queries into SQL.
 - Integrated with **MySQL and Flask**.
 
+### 6. Lab 8 - Sentiment Prediction API Using FastAPI and Youtube Comments
+- A FastAPI-based Sentiment Prediction API that fetches YouTube comments and analyzes their sentiment (positive, negative, or neutral) using NLP.
+- Integrates YouTube Data API v3 and NLTK's VADER for real-time sentiment analysis.
+
+
 **Maintained by:** [Ashmit Dutta](https://github.com/ByteBit0)

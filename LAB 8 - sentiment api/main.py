@@ -16,11 +16,8 @@ nltk.download('vader_lexicon')
 # Initialize Sentiment Analyzer
 sia = SentimentIntensityAnalyzer()
 
-# # Option 1: Use an environment variable (set this manually in your system)
-# YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY")
-
 # Option 2: Hard-code your API key here (for testing only; remove in production)
-YOUTUBE_API_KEY = "AIzaSyDJFIHFyO0PRzUxhwaZxD0CZ03HKBaVHY0"
+YOUTUBE_API_KEY = "Your_api_here"
 
 # Function to analyze sentiment
 def analyze_sentiment(text: str):

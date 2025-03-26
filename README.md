@@ -25,4 +25,4 @@ This repository contains coursework for the AD Lab, including various projects a
 - Built an **LLM-powered system** to convert natural language queries into SQL.
 - Integrated with **MySQL and Flask**.
 
-**Maintained by:** [Ashmit Dutta](https://github.com/kanikarawlo)
+**Maintained by:** [Ashmit Dutta]([https://github.com/kanikarawlo](https://github.com/ByteBit0))

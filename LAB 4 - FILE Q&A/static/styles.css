@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: yellow;
+    color: #222; 
+    margin: 0;
+    padding: 0;
+}
+
+h1, h3 {
+    color: #1E88E5; 
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+input[type="text"], input[type="file"], select {
+    padding: 10px;
+    width: 300px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #444;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #1E88E5; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #1565C0; 
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.upload-container {
+    text-align: center;
+}
+
+.chat-container {
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333; /* Changed chat text color */
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #444;
+}
+
+input[type="text"] {
+    width: 60%;
+}
+
+form button {
+    align-self: center;
+    margin-top: 10px;
+}

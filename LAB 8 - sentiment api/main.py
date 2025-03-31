@@ -6,6 +6,10 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import os
 from googleapiclient.discovery import build
 import requests
+import os
+from dotenv import load_dotenv
+
+
 
 # Initialize FastAPI
 app = FastAPI()
@@ -16,8 +20,15 @@ nltk.download('vader_lexicon')
 # Initialize Sentiment Analyzer
 sia = SentimentIntensityAnalyzer()
 
-# Option 2: Hard-code your API key here (for testing only; remove in production)
-YOUTUBE_API_KEY = "Your_api_here"
+# Load variables from .env
+load_dotenv()
+
+# Get the API key from .env
+YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
+
+# Check if the key is loaded correctly
+if not YOUTUBE_API_KEY:
+    raise ValueError("❌ Missing YouTube API key! Make sure '.env' is set up correctly.")
 
 # Function to analyze sentiment
 def analyze_sentiment(text: str):

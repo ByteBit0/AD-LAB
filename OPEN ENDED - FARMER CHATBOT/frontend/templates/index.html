@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat App</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script>
+    async function fetchWeather(lat, lon) {
+      try {
+        const response = await fetch(`/weather?lat=${lat}&lon=${lon}`);
+        const data = await response.json();
+        if (data.main) {
+          document.getElementById('weather').innerHTML = 
+            `${data.name}: ${Math.round(data.main.temp - 273.15)}°C, ${data.weather[0].description}`;
+        } else {
+          document.getElementById('weather').textContent = 'Weather data unavailable';
+        }
+      } catch (error) {
+        document.getElementById('weather').textContent = 'Error fetching weather';
+      }
+    }
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          position => fetchWeather(position.coords.latitude, position.coords.longitude),
+          () => document.getElementById('weather').textContent = 'Location access denied'
+        );
+      } else {
+        document.getElementById('weather').textContent = 'Geolocation not supported';
+      }
+    }
+
+    window.onload = getLocation;
+  </script>
+</head>
+<body>
+  <div class="weather-widget" id="weather">Loading weather...</div>
+  <div class="chat-container">
+    <h1>Chat App</h1>
+    <div id="chat-box"></div>
+    <div class="input-container">
+      <input type="text" id="messageInput" placeholder="Enter your message">
+      <button id="sendBtn">Send</button>
+      <button id="recordBtn">🎙 Speak</button>
+    </div>
+  </div>
+  <script>
+    async function sendMessage(message) {
+      const chatBox = document.getElementById('chat-box');
+      const userMsg = document.createElement('div');
+      userMsg.classList.add('user-msg');
+      userMsg.textContent = message;
+      chatBox.appendChild(userMsg);
+
+      try {
+        const response = await fetch('/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message })
+        });
+        const data = await response.json();
+
+        const botMsg = document.createElement('div');
+        botMsg.classList.add('bot-msg');
+        botMsg.textContent = data.response || data.error;
+        chatBox.appendChild(botMsg);
+
+        chatBox.scrollTop = chatBox.scrollHeight;
+      } catch (error) {
+        const errorMsg = document.createElement('div');
+        errorMsg.classList.add('bot-msg');
+        errorMsg.textContent = 'Error: ' + error;
+        chatBox.appendChild(errorMsg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    }
+
+    document.getElementById('sendBtn').addEventListener('click', () => {
+      const messageInput = document.getElementById('messageInput');
+      const message = messageInput.value.trim();
+      if (message) {
+        sendMessage(message);
+        messageInput.value = '';
+      }
+    });
+
+    document.getElementById('recordBtn').addEventListener('click', async () => {
+      try {
+        const response = await fetch('/voice');
+        const data = await response.json();
+        
+        if (data.success && data.text) {
+          document.getElementById('messageInput').value = data.text;
+          sendMessage(data.text);
+        } else {
+          alert(data.error || 'Speech recognition failed');
+        }
+      } catch (error) {
+        alert('Error accessing voice recognition: ' + error);
+      }
+    });
+  </script>
+</body>
+</html>
